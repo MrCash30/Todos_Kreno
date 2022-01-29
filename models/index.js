@@ -36,6 +36,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.todos = require('./todoModel')(sequelize, Sequelize.DataTypes)
-db.reviews = require('./reviewModel')(sequelize, Sequelize.DataTypes)
+db.users = require('./userModel')(sequelize, Sequelize.DataTypes)
 
-module.exports = db;
+module.exports = db

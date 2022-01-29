@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
-    const Review = sequelize.define("review", {
+    const User = sequelize.define("user", {
         comment: {
             type: DataTypes.STRING,
             allowNull: true
         }
     });
-    return Review;
+    return User;
 };

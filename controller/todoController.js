@@ -1,8 +1,9 @@
-const db = require('../models');
+// create the general model that link to all models
+const Model = require('../models');
 
 // create main Model
-const Todos = db.todos;
-const Review = db.reviews;
+// const Todos = db.todos;
+// const Users = db.users;
 
 // 1. create todos
 
@@ -12,7 +13,7 @@ const addTodos = async (req, res) => {
         text: req.body.text
     }
 
-    const todo = await Todos.create(acivity)
+    const todo = await Model.todos.create(acivity)
     res.status(200).send(todo)
     console.log(todo)
 }
@@ -21,7 +22,7 @@ const addTodos = async (req, res) => {
 
 const getAllTodos = async (req, res) => {
 
-    let todos = await Todos.findAll({})
+    let todos = await Model.todos.findAll({})
     res.status(200).send(todos)
 }
 
@@ -30,7 +31,7 @@ const getAllTodos = async (req, res) => {
 const getOneTodos = async (req, res) => {
 
     let id = req.params.id
-    let todos = await Todos.findOne({
+    let todos = await Model.todos.findOne({
         where: {
             id: id
         }
@@ -42,7 +43,7 @@ const getOneTodos = async (req, res) => {
 
 const updateTodos = async (req, res) => {
     let id = req.params.id
-    let todos = await Todos.update({
+    let todos = await Model.todos.update({
         text: req.body.text
     }, {
         where: {
@@ -56,7 +57,7 @@ const updateTodos = async (req, res) => {
 
 const deleteTodos = async (req, res) => {
     let id = req.params.id
-    await Todos.destroy({
+    await Model.todos.destroy({
         where: {
             id: id
         }
