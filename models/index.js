@@ -35,7 +35,14 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.todos = require('./todoModel')(sequelize, Sequelize.DataTypes)
-db.users = require('./userModel')(sequelize, Sequelize.DataTypes)
+db.todos = require('./todo')(sequelize, Sequelize.DataTypes)
+db.comment = require('./comment')(sequelize, Sequelize.DataTypes)
+
+// associate db
+db.todos.hasMany(db.comment, {
+  foreignKey: 'todoId',
+  as: 'Comment'
+});
+db.comment.belongsTo(db.todos);
 
 module.exports = db
