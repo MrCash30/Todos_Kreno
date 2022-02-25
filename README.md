@@ -1,4 +1,4 @@
-# Todos_Kreno (Backend)
+# Todos_Kreno (Frontend + Backend)
 
 Using MVC Architecture (Model - View - Controller)
 
