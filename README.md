@@ -9,5 +9,3 @@ Using MVC Architecture (Model - View - Controller)
 
 � Database
 - MySQL
-
-main branch <-> master branch
